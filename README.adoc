@@ -1,0 +1,27 @@
+= Test Maven Enforcer plugin
+
+This repository is a minimal reproducible example.
+
+== Description
+
+It tests the behaviour of the *dependency convergence* rule in *Maven Enforcer Plugin* regarding snapshot update.
+The behaviour tested is that, when enforcing a module, the plugin tries the `maven-metadata.xml` file of the currently enforced module.
+
+== Expected behaviour
+
+The snapshot updates should not include the currently enforced module.
+
+== How to try it
+
+To build, simply compile the project: `mvn compile`.
+The output is:
+
+----
+[INFO] ------------------< com.geomatys.debug:enforcer-test >------------------
+[INFO] Building Enforcer test 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-enforcer-plugin:3.0.0:enforce (enforce) @ enforcer-test ---
+Downloading from spring.releases: https://repo.spring.io/release/com/geomatys/debug/enforcer-test/1.0-SNAPSHOT/maven-metadata.xml
+----
+
